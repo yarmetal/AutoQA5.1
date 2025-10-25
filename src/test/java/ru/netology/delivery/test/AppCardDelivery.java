@@ -16,6 +16,15 @@ import static com.codeborne.selenide.Selenide.*;
 public class AppCardDelivery {
 
 
+    @BeforeAll
+    public static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+    @AfterAll
+    public static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
+
     @Test
     void shouldRegisterCardDelivery() {
 
